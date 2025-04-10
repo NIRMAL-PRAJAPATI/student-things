@@ -1,0 +1,1 @@
+This project was my first hands-on experience with Node.js, Express.js, and MongoDB, built as part of my backend development learning journey. While the structure may not be perfect, it reflects my dedication to exploring backend concepts, implementing key functionalities, and continuously improving through practical application and experimentation.
