@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Student Profile project</title>
+    <link rel="stylesheet" href="/css/profproject.css">
+</head>
+
+<body>
+
+    <main class="container-fluid">
+        <div id="upofaddproject" class="form-signin w-100 text-center justify-content-center">
+            <div id="addprojectbox" class="card w-100" style="background-color: rgb(250, 250, 250);">
+                <div class="card-body">
+                    <form id="projectdetailsform" method="post" action="/profile/project/create">
+                        <h5 class="text-secondary fs-4">Project Details</h5>
+                        <div class="form-floating mt-3">
+                            <input type="text" class="form-control" id="projecttitle" placeholder="adam_123" name="title" value="" required>
+                            <label for="projecttitle">Project Title</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control mt-3" style="height: 200px; resize: none;" id="projectdiscription" placeholder="adam_123"
+                                name="discription" required></textarea>
+                            <label for="projectdiscription">Project Discription</label>
+                        </div>
+                        <div class="form-floating mt-3">
+                            <input type="text" class="form-control" id="technology" placeholder="adam_123" name="technology" value="" required>
+                            <label for="technology">Project Technology</label>
+                        </div>
+                        <div class="form-floating mt-3">
+                            <input type="text" class="form-control" id="link" placeholder="adam_123" name="link" value="" required>
+                            <label for="link">Project Link</label>
+                        </div>
+                        <button class="btn btn-primary w-100 h-100 py-2 my-3">+Add Project Details</button>
+                    </form>
+                </div>
+            </div>
+            <button id="projectslider" class="btn btn-success w-100 pt-3 fs-5">Slidedown to add project</button>
+        </div>
+        <div id="bodytag"></div>
+
+        <% msg.projects.forEach((e) => { %>
+            <div class="p-md-5 p-4 my-2 my-md-3 rounded-2" style="background-color: rgb(43, 42, 42);">
+                <p id="datebox" class="text-secondary nowraper position-absolute"><%= e.date %></p>
+                <h1 id="head" class="text-primary text-nowrap text-truncate"><%= e.title %></h1>
+                <p id="document" class="text-white"><%- e.discription.replace(/\n/g, '<br>'); %></p>
+                <p class="text-secondary nowraper"><%= e.technology %></p>
+                <div class="d-flex w-100" style="justify-content: end;">
+                <a class="text-decoration-none mx-3 text-secondary" href="">Edit</a>
+                <a id="projectdeletebtn" class="text-decoration-none text-danger" style="cursor: pointer;" onclick="projectdeleter(`/profile/project/<%= e._id %>/delete`);">Delete</a>
+                </div>
+                <a href="<%= e.link %>"><button class="btn btn-outline-success px-2 px-md-5 mt-2 w-100">Open Project</button></a>
+            </div>
+       <% }) %>
+    </main>
+
+    <script src="/script/profproject.js"></script>
+    <script src="/script/navbar.js"></script>
+    <script src="/script/profileinfo.js"></script>
+</body>
+
+</html>

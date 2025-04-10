@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Student Profile project</title>
+    <link rel="stylesheet" href="/css/projectlist.css">
+</head>
+
+<body class="overflow-x-hidden">
+    <%- include ('navbar'); %>
+        <header class="mb-0 mb-md-4">
+            <div>
+                <nav class="nav nav-masthead justify-content-center float-md-center mt-3">
+                    <a class="nav-link fw-bold py-1 px-3 text-secondary" href="">All</a>
+                    <a class="nav-link fw-bold py-1 px-3 text-secondary" href="">Technical</a>
+                    <a class="nav-link fw-bold py-1 px-3 text-secondary" href="">mechanical</a>
+                    <a class="nav-link fw-bold py-1 px-3 text-secondary" href="">medical</a>
+                    <a class="nav-link fw-bold py-1 px-3 text-secondary" href="">charity</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="row justify-content-center">
+            <% msg.forEach((e) => { %>
+            <div class="col-lg-5 col-11 p-md-5 p-4 my-2 my-md-3 rounded-2 mx-2 mx-md-3" style="background-color: rgb(43, 42, 42);">
+                <p id="datebox" class="text-secondary position-absolute"><%= e.date %></p>
+                <h1 id="head" class="text-primary text-nowrap text-truncate mt-2 mt-md-0"><%= e.title %></h1>
+                <p id="document" class="text-white"><%- e.discription.replace(/\n/g, '<br>'); %></p>
+                <p class="text-secondary"><%= e.technology %></p>
+                <div class="d-flex w-100 mt-3" style="justify-content: space-between;">
+                    <p class="text-white"><%= e.username %></p>
+                    <div>
+                <a class="text-decoration-none text-secondary" href="/projectlist/<%= e._id %>/like"><img src="img/sourceimg/activelike.png" height="20" style="margin-top: -5px;"> <%= e.likes.length %></a>
+                <a class="text-decoration-none text-secondary mx-1 mx-md-3" href=""><img src="img/sourceimg/comment.png" height="20" style="margin-top: -5px;"> 232</a>
+                <a class="text-decoration-none text-secondary" href=""><img src="img/sourceimg/share.png" height="20" style="margin-top: -5px;"> 42</a>
+                </div>
+                </div>
+                <a href="<%= e.link %>"><button class="btn btn-outline-primary px-2 px-md-5 mt-2 w-100">Open Project</button></a>
+            </div>
+            <% }) %>
+        </main>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+#document {
+    height: 130px;
+    overflow-y: scroll;
+}
+
+.text-secondary {
+    text-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+#datebox {
+    width: 100px;
+    margin: -30px 0px 0px -20px;
+    font-size: 12px;
+}
+
+#upofaddproject {
+    z-index: 10;
+}
+
+#addprojectbox {
+    margin-top: -585px;
+    transition-duration: 0.5s;
+}
+
+.text-secondary::-webkit-scrollbar {
+    display: none;
+}
+
+#document::-webkit-scrollbar {
+    display: none;
+}
+
+@media(max-width: 800px) {
+    #document {
+        height: 140px;
+        overflow-x: scroll;
+    }
+
+    #datebox {
+        width: 80px;
+        margin: -16px 0px 0px -10px;
+        font-size: 10px;
+    }
+}

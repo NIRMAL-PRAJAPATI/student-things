@@ -1,0 +1,5 @@
+now we have to access and decode the username which is stored in localstorage.
+then by using localstorage we access the other details and show it to the profile page.
+make 'update inforation' for profile page.
+logout
+forgot password page.
